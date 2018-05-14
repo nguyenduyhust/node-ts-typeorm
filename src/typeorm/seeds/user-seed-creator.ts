@@ -1,7 +1,7 @@
-import { User } from '../../typeorm/entity/User';
+import { User } from '../entity/User';
 import { getHash } from '../../utilities/passport';
 import { getRepository, getCustomRepository } from 'typeorm';
-import { UserRepository } from '../../typeorm/repository/user-repository';
+import { UserRepository } from '../repository/user-repository';
 
 const userRepository = getCustomRepository(UserRepository);
 

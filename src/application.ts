@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as expressValidator from 'express-validator';
 import * as bodyParser from 'body-parser';
 const glob = require('glob');
+const typeorm = require('./typeorm/typeorm');
 
 export default class App {
   private app: express.Express;
@@ -10,7 +11,7 @@ export default class App {
   constructor() {
   }
 
-  public initalize(app: express.Express) {
+  public async initalize(app: express.Express) {
     this.app = app;
 
     // set port
@@ -34,7 +35,10 @@ export default class App {
       })
     );
 
-    // Setup auth
+    // Connect to database
+    await typeorm(app);
+
+    // Setup middlewares
     let middlewares = glob.sync(__dirname + '/middlewares/*.+(js|jsx|ts|tsx)');
     middlewares.forEach(function (middleware: string) {
       console.log('Loading middleware : ' + middleware);
