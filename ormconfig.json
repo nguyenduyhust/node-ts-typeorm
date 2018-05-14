@@ -2,23 +2,23 @@
    "type": "mysql",
    "host": "localhost",
    "port": 3306,
-   "username": "test",
-   "password": "test",
-   "database": "test",
+   "username": "nguyenduy",
+   "password": "18051994",
+   "database": "icovo",
    "synchronize": true,
    "logging": false,
    "entities": [
-      "src/entity/**/*.ts"
+      "build/typeorm/entity/**/*.js"
    ],
    "migrations": [
-      "src/migration/**/*.ts"
+      "build/typeorm/migration/**/*.js"
    ],
    "subscribers": [
-      "src/subscriber/**/*.ts"
+      "build/typeorm/subscriber/**/*.js"
    ],
    "cli": {
-      "entitiesDir": "src/entity",
-      "migrationsDir": "src/migration",
-      "subscribersDir": "src/subscriber"
+      "entitiesDir": "build/typeorm/entity",
+      "migrationsDir": "build/typeorm/migration",
+      "subscribersDir": "build/typeorm/subscriber"
    }
 }

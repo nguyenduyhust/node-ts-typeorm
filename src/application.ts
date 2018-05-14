@@ -34,9 +34,21 @@ export default class App {
       })
     );
 
+    // Setup auth
+    let middlewares = glob.sync(__dirname + '/middlewares/*.+(js|jsx|ts|tsx)');
+    middlewares.forEach(function (middleware: string) {
+      console.log('Loading middleware : ' + middleware);
+      try {
+        require(middleware)(app);
+      } catch ( err ) {
+        console.log(err);
+        process.exit(1);
+      }
+    });
+
     // Setup routes
     let routes = glob.sync(__dirname + '/routes/*.+(js|jsx|ts|tsx)');
-    routes.forEach((route) => {
+    routes.forEach((route: string) => {
       console.log('Loading route : ' + route);
       require(route)(app);
     });
