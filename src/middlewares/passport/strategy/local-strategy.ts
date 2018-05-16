@@ -11,8 +11,6 @@ module.exports = (app: Express) => {
     usernameField: 'email',
     passwordField: 'password',
   }, async (email, password, done) => {
-    console.log('email: ' + email);
-    console.log('password: ' + password);
     try {
       let user = await userRepository.authenticate(email, password);
       if (user) {
