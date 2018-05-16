@@ -1,9 +1,15 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as expressValidator from 'express-validator';
+import * as session from 'express-session';
 import * as bodyParser from 'body-parser';
+import * as nodeConfig from 'config';
+import * as passport from 'passport';
+const flash = require('connect-flash');
 const glob = require('glob');
+
 const typeorm = require('./typeorm/typeorm');
+const sessionConfig: session.SessionOptions = nodeConfig.get('session');
 
 export default class App {
   private app: express.Express;
@@ -35,16 +41,28 @@ export default class App {
       })
     );
 
+    // Initialize connect-flash
+    app.use(flash());
+
+    // session
+    app.use(session({
+      secret: sessionConfig.secret,
+      resave: sessionConfig.resave,
+      saveUninitialized: sessionConfig.saveUninitialized,
+      cookie: sessionConfig.cookie,
+    }));
+
     // Connect to database
     await typeorm(app);
 
     // Setup middlewares
+    // Passport
     let middlewares = glob.sync(__dirname + '/middlewares/*.+(js|jsx|ts|tsx)');
     middlewares.forEach(function (middleware: string) {
       console.log('Loading middleware : ' + middleware);
       try {
         require(middleware)(app);
-      } catch ( err ) {
+      } catch (err) {
         console.log(err);
         process.exit(1);
       }
@@ -59,7 +77,7 @@ export default class App {
 
     // catch 404 and forward to error handler
     app.use((req: any, res: any, next: any) => {
-      let err: any = new Error('Not Found');
+      let err: any = new Error('Not Found Error');
       err.status = 404;
       next(err);
     });

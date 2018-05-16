@@ -4,13 +4,18 @@
   "description": "Awesome project developed with TypeORM.",
   "scripts": {
     "build": "node ./node_modules/gulp/bin/gulp build",
-    "start": "node ./build/index.js"
+    "start": "export NODE_ENV=production && node ./build/index.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^2.0.0",
     "@types/body-parser": "^1.17.0",
+    "@types/config": "0.0.34",
     "@types/express": "^4.11.1",
+    "@types/express-session": "^1.15.8",
+    "@types/glob": "^5.0.35",
     "@types/node": "^8.0.29",
+    "@types/passport": "^0.4.5",
+    "@types/passport-local": "^1.0.33",
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.1",
@@ -23,11 +28,16 @@
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
     "class-validator": "^0.8.5",
+    "config": "^1.30.0",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "express-validator": "^5.2.0",
     "glob": "^7.1.2",
     "mysql": "^2.14.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.10",
     "typeorm": "^0.1.20"
   }
