@@ -1,24 +1,24 @@
 {
-   "type": "mysql",
-   "host": "localhost",
-   "port": 3306,
-   "username": "nguyenduy",
-   "password": "18051994",
-   "database": "icovo",
-   "synchronize": true,
-   "logging": false,
-   "entities": [
-      "build/typeorm/entity/**/*.js"
-   ],
-   "migrations": [
-      "build/typeorm/migration/**/*.js"
-   ],
-   "subscribers": [
-      "build/typeorm/subscriber/**/*.js"
-   ],
-   "cli": {
-      "entitiesDir": "build/typeorm/entity",
-      "migrationsDir": "build/typeorm/migration",
-      "subscribersDir": "build/typeorm/subscriber"
-   }
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "nguyenduy",
+  "password": "18051994",
+  "database": "icovo",
+  "synchronize": true,
+  "logging": false,
+  "entities": [
+    "build/typeorm/entity/**/*.js"
+  ],
+  "migrations": [
+    "build/typeorm/migration/**/*.js"
+  ],
+  "subscribers": [
+    "build/typeorm/subscriber/**/*.js"
+  ],
+  "cli": {
+    "entitiesDir": "src/typeorm/entity",
+    "migrationsDir": "src/typeorm/migration",
+    "subscribersDir": "src/typeorm/subscriber"
+  }
 }

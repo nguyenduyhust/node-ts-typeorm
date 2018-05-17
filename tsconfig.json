@@ -19,4 +19,7 @@
     "**/*.ts",
     "**/*.tsx"
   ],
+  "exclude": [
+    // "src/typeorm/migration/**/*.ts",
+  ]
 }

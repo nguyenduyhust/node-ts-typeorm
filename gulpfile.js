@@ -35,8 +35,8 @@ gulp.task('css', () => {
 });
 
 // Linting
-gulp.task("lint", () => {
-  gulp.src("src/**/*.ts")
+gulp.task('lint', () => {
+  gulp.src(['src/**/*.ts', '!src/typeorm/migration/**/*.ts'])
     .pipe(tslint(tslintConfig))
     .pipe(tslint.report())
 });
