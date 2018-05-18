@@ -2,9 +2,9 @@
   "type": "mysql",
   "host": "localhost",
   "port": 3306,
-  "username": "nguyenduy",
-  "password": "18051994",
-  "database": "icovo",
+  "username": "test",
+  "password": "test",
+  "database": "test",
   "synchronize": true,
   "logging": false,
   "entities": [

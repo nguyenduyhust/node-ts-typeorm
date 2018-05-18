@@ -6,7 +6,8 @@
     "build": "node ./node_modules/gulp/bin/gulp build",
     "start": "export NODE_ENV=production && node ./build/index.js",
     "migration-generate": "tsc && ./node_modules/.bin/typeorm migrations:generate -n",
-    "migration-run": "tsc && ./node_modules/.bin/typeorm migrations:run"
+    "migration-run": "tsc && ./node_modules/.bin/typeorm migrations:run",
+    "migration-revert": "tsc && ./node_modules/.bin/typeorm migrations:revert"
   },
   "devDependencies": {
     "@types/bcrypt": "^2.0.0",
