@@ -1,16 +1,22 @@
 import { Repository, EntityRepository, EntityManager } from 'typeorm';
 import { User } from '../entity/User';
 import * as PassportUtilities from '../../utilities/passport';
+import { validate } from 'class-validator';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  createAndSave(username: string, email: string, password: string) {
+  async createAndSave(username: string, email: string, password: string) {
     const user = new User();
     user.username = username;
     user.email = email;
     user.password = PassportUtilities.getHash(password);
 
-    return this.save(user);
+    const validateErrors = await validate(user);
+    if (validateErrors.length > 0) {
+      throw new Error('Validation failed!');
+    } else {
+      return this.save(user);
+    }
   }
 
   async isUserExist(email: string) {
