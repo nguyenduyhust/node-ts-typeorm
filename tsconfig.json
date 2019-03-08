@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6"
+    ],
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    // "src/typeorm/migration/**/*.ts",
+  ]
+}

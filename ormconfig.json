@@ -1,0 +1,24 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "test",
+  "password": "test",
+  "database": "test",
+  "synchronize": true,
+  "logging": ["error"],
+  "entities": [
+    "build/typeorm/entity/**/*.js"
+  ],
+  "migrations": [
+    "build/typeorm/migration/**/*.js"
+  ],
+  "subscribers": [
+    "build/typeorm/subscriber/**/*.js"
+  ],
+  "cli": {
+    "entitiesDir": "src/typeorm/entity",
+    "migrationsDir": "src/typeorm/migration",
+    "subscribersDir": "src/typeorm/subscriber"
+  }
+}
